@@ -4,8 +4,14 @@ import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport implements Competing{
-    public Bus(String brand, String model, Float engineVolume) {
+    private final PassengerCapacity passengerCapacity;
+    public Bus(String brand, String model, Float engineVolume, PassengerCapacity passengerCapacity) {
         super(brand, model, engineVolume);
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    public PassengerCapacity getPassengerCapacity() {
+        return passengerCapacity;
     }
 
     @Override
@@ -32,5 +38,28 @@ public class Bus extends Transport implements Competing{
     @Override
     public int getMaxSpeed() {
         return ThreadLocalRandom.current().nextInt(1,300);
+    }
+
+    @Override
+    public void printType() {
+        if ( this.passengerCapacity!= null){
+            System.out.println(passengerCapacity);
+        } else {
+            System.out.println("данных по авто недостаточно");
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return passengerCapacity == bus.passengerCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), passengerCapacity);
     }
 }

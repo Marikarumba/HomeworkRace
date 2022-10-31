@@ -1,13 +1,18 @@
 package transport;
 
-import transport.Transport;
-
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing{
 
-    public Car(String brand, String model, Float engineVolume) {
+    private BodyType bodyType;
+    public Car(String brand, String model, Float engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
     @Override
@@ -19,7 +24,6 @@ public class Car extends Transport implements Competing{
     public void stopMovement() {
         System.out.println("transport.Car " + this.getBrand() + this.getModel() + " stopped movement");
     }
-
 
     @Override
     public void pitStop() {
@@ -34,5 +38,27 @@ public class Car extends Transport implements Competing{
     @Override
     public int getMaxSpeed() {
         return ThreadLocalRandom.current().nextInt(1,300);
+    }
+    @Override
+    public void printType() {
+        if (this.bodyType != null){
+            System.out.println(bodyType);
+        } else {
+            System.out.println("данных по авто недостаточно");
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return bodyType == car.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 }

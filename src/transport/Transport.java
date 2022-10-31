@@ -44,6 +44,7 @@ public abstract class Transport {
 
     public abstract void startMovement();
     public abstract void stopMovement();
+    public abstract void printType();
 
     public boolean equals(Object o) {
         if (this == o) return true;
