@@ -7,16 +7,23 @@ import java.util.Objects;
 public abstract class Driver <T extends Transport> {
 
     private final String fullName;
-    private final String licenseType;
+    private String licenseType;
     private final int experience;
     private final T car;
 
     public Driver(String fullName, String licenseType, int experience, T car) {
 
         this.fullName = fullName;
-        this.licenseType = licenseType;
+        setLicenseType(licenseType);
         this.experience = experience;
         this.car = car;
+    }
+
+    public void setLicenseType(String licenseType) {
+        if (licenseType==null){
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
+        this.licenseType = licenseType;
     }
 
     public String getFullName() {

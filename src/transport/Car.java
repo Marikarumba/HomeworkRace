@@ -49,6 +49,11 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public boolean service() {
+        return Math.random()>0.5;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

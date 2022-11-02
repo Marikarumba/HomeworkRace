@@ -1,7 +1,6 @@
 import driver.DriverB;
 import transport.*;
-
-import javax.sound.midi.Track;
+import transport.Transport;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,5 +40,22 @@ public class Main {
                 3f,
                 CarriageCapacity.N2);
         truck1.printType();
+
+
+        service(truck1,bus1,car2, car1);
     }
-}
+
+    private static void service(Transport... transports){
+        for (Transport transport : transports) {
+            try{
+                if (!transport.service()) {
+                    throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику!");
+                }
+            } catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+
+    }
