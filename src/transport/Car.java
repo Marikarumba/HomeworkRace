@@ -1,12 +1,18 @@
 package transport;
 
+import persons.*;
+
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing{
 
     private BodyType bodyType;
-    public Car(String brand, String model, Float engineVolume, BodyType bodyType) {
+    public Car(String brand,
+               String model,
+               Float engineVolume,
+               BodyType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
     }
@@ -65,5 +71,22 @@ public class Car extends Transport implements Competing{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), bodyType);
+    }
+
+    @Override
+    public String toString() {
+        return "Машина" +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
+                "bodyType=" + bodyType +
+                '}';
+    }
+    
+    public void printInfoCar(){
+        System.out.println( toString());
+        System.out.println(sponsors.get(0).toString());
+        
+        
     }
 }

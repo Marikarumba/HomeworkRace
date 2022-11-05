@@ -1,4 +1,4 @@
-package driver;
+package persons;
 
 import transport.Transport;
 
@@ -11,10 +11,16 @@ public abstract class Driver <T extends Transport> {
     private final int experience;
     private final T car;
 
-    public Driver(String fullName, String licenseType, int experience, T car) {
 
+    public Driver(String fullName, String licenseType, int experience) {
         this.fullName = fullName;
-        setLicenseType(licenseType);
+        this.licenseType = licenseType;
+        this.experience = experience;
+        this.car = null;
+    }
+    public Driver(String fullName, String licenseType, int experience, T car) {
+        this.fullName = fullName;
+        this.licenseType = licenseType;
         this.experience = experience;
         this.car = car;
     }
@@ -69,8 +75,7 @@ public abstract class Driver <T extends Transport> {
 
     @Override
     public String toString() {
-        return String.format("водитель %s управляет автомобилем %s %s и будет участвовать в заезде",
-        this.fullName,this.car.getBrand(), this.car.getModel());
+        return String.format("Водитель %s  будет участвовать в заезде", this.fullName);
 
     }
 }

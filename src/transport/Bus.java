@@ -1,11 +1,20 @@
 package transport;
 
+import persons.Driver;
+import persons.DriverD;
+import persons.Mechanic;
+import persons.Sponsor;
+
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport implements Competing{
     private final PassengerCapacity passengerCapacity;
-    public Bus(String brand, String model, Float engineVolume, PassengerCapacity passengerCapacity) {
+    public <driverD1er> Bus(String brand,
+                            String model,
+                            Float engineVolume,
+                            PassengerCapacity passengerCapacity) {
         super(brand, model, engineVolume);
         this.passengerCapacity = passengerCapacity;
     }

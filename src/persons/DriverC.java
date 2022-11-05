@@ -1,4 +1,4 @@
-package driver;
+package persons;
 import transport.Truck;
 
 public class DriverC extends Driver<Truck>{
