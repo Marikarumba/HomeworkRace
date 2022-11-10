@@ -2,6 +2,8 @@ package persons;
 
 import transport.Transport;
 
+import java.util.Objects;
+
 public class Mechanic {
 
     private final String mechanicFullName;
@@ -54,6 +56,29 @@ public class Mechanic {
 
     }
     public void repair (Transport transport){
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return repairCar == mechanic.repairCar && repairBus == mechanic.repairBus && repairTruck == mechanic.repairTruck && Objects.equals(mechanicFullName, mechanic.mechanicFullName) && Objects.equals(mechanicCompany, mechanic.mechanicCompany);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mechanicFullName, mechanicCompany, repairCar, repairBus, repairTruck);
+    }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "mechanicFullName='" + mechanicFullName + '\'' +
+                ", mechanicCompany='" + mechanicCompany + '\'' +
+                ", repairCar=" + repairCar +
+                ", repairBus=" + repairBus +
+                ", repairTruck=" + repairTruck +
+                '}';
     }
 }

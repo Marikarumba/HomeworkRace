@@ -15,12 +15,19 @@ public class Main {
                 "ФИО",
                 50000,
                 true);
+
+        Sponsor sponsor2 = new Sponsor(
+                "ФИО",
+                50000,
+                true);
+
         Mechanic mechanic1 = new Mechanic(
                 "Фио",
                 "ООО",
                 true,
                 true,
                 false);
+
         Mechanic mechanic2 = new Mechanic(
                 "Петров",
                 "Компания",
@@ -33,6 +40,7 @@ public class Main {
                 "Веста",
                 2.0f,
                 BodyType.SEDAN);
+
         car1.setDriver(driver1);
         car1.addMechanic(mechanic1);
         car1.addSponsor(sponsor1);

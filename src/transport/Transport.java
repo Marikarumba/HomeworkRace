@@ -4,9 +4,7 @@ import persons.Driver;
 import persons.Mechanic;
 import persons.Sponsor;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class Transport {
 
@@ -15,8 +13,8 @@ public abstract class Transport {
     private final Float engineVolume;
 
     public Driver driver;
-    public List<Mechanic> mechanics;
-    public List<Sponsor> sponsors;
+    public Set<Mechanic> mechanics;
+    public Set<Sponsor> sponsors;
 
 
 
@@ -24,8 +22,8 @@ public abstract class Transport {
                      String model,
                      Float engineVolume) {
         this.driver = null;
-        this.mechanics = new ArrayList<>();
-        this.sponsors = new ArrayList<>();
+        this.mechanics = new HashSet<>();
+        this.sponsors = new HashSet<>();
 
         if (brand == null){
             this.brand = "default";

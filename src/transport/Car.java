@@ -1,8 +1,5 @@
 package transport;
 
-import persons.*;
-
-import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -85,8 +82,8 @@ public class Car extends Transport implements Competing{
     
     public void printInfoCar(){
         System.out.println( toString());
-        System.out.println(sponsors.get(0).toString());
-        
+        System.out.println(sponsors.toString());
+        System.out.println(mechanics.toString());
         
     }
 }
